@@ -4,7 +4,12 @@ const port = process.env.PORT || 5000;
 
 const app = express()
 
+// Body parser
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
+
 app.use('/openai', require('./routes/openaiRoutes'))
 
 app.listen(port, () => console.log(`Sever started on port ${port}`))
+
 
